@@ -1,19 +1,58 @@
+const axios = require('axios');
 const key = require('../../secret');
-const chance = require('../chance');
+const giphyUrl =`http://api.giphy.com/v1/gifs/search?`;
+const functions = require('../functions');
 
 exports.yesNo = (req, res, next) =>{
-  let answer = chance() == 1 ? "Yes" : "No";
-  console.log('Yes No Route is working!!');
-  res.json({ answer });
+  let answer = functions.chance() == 1 ? "Yes" : "No";
+  const randomGiph = Math.round(Math.random()*25);
+  let gif ='';
+  // 25 gifs
+  axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
+    .then(response => {
+      gif = response.data.data[randomGiph].images.downsized_large.url;
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.json({ answer, gif: 'images/broken.gif'})
+   })
+   .then(()=>{
+     res.json({ answer, gif });
+   });
 };
 
 exports.flip = (req, res, next) =>{
-  let answer = chance() == 1 ? "Heads" : "Tails";
-  console.log('Flip Route is working!!');
-  res.json({ answer });
+  let answer = functions.chance() == 1 ? "Heads" : "Tails";
+  const randomGiph = Math.round(Math.random()*25);
+  let gif ='';
+  // 25 gifs
+  axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
+    .then(response => {
+      gif = response.data.data[randomGiph].images.downsized_large.url;
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.json({ answer, gif: 'images/broken.gif'})
+   })
+   .then(()=>{
+     res.json({ answer, gif });
+   });
 };
+
 exports.traffic = (req, res, next) =>{
-  let answer = chance() == 1 ? "Go" : "Stop";
-  console.log('Traffic Route is working!!');
-  res.json({ answer });
+  let answer = functions.chance() == 1 ? "Go" : "Stop";
+  const randomGiph = Math.round(Math.random()*25);
+  let gif ='';
+  // 25 gifs
+  axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
+    .then(response => {
+      gif = response.data.data[randomGiph].images.downsized_large.url;
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.json({ answer, gif: 'images/broken.gif'})
+   })
+   .then(()=>{
+     res.json({ answer, gif });
+   });
 };
