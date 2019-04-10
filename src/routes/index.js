@@ -1,21 +1,10 @@
-const chance = require('../chance');
+const controllers = require('../controllers');
+
 module.exports = app =>{
   app.route('/yesno')
-    .get((req, res, next) =>{
-      let answer = chance() == 1 ? "Yes" : "No";
-      console.log('Yes No Route is working!!');
-      res.json({ answer });
-    });
+    .get(controllers.yesNo);
   app.route('/flip')
-    .get((req, res, next) =>{
-      let answer = chance() == 1 ? "Heads" : "Tails";
-      console.log('Flip Route is working!!');
-      res.json({ answer });
-    });
+    .get(controllers.flip);
   app.route('/traffic')
-    .get((req, res, next) =>{
-      let answer = chance() == 1 ? "Go" : "Stop";
-      console.log('Traffic Route is working!!');
-      res.json({ answer });
-    });
+    .get(controllers.traffic);
 }
