@@ -5,7 +5,7 @@ const functions = require('../functions');
 
 exports.yesNo = (req, res, next) =>{
   let answer = functions.chance() == 1 ? "Yes" : "No";
-  const randomGiph = Math.round(Math.random()*25);
+  const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
   axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
@@ -23,7 +23,7 @@ exports.yesNo = (req, res, next) =>{
 
 exports.flip = (req, res, next) =>{
   let answer = functions.chance() == 1 ? "Heads" : "Tails";
-  const randomGiph = Math.round(Math.random()*25);
+  const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
   axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
@@ -41,7 +41,7 @@ exports.flip = (req, res, next) =>{
 
 exports.traffic = (req, res, next) =>{
   let answer = functions.chance() == 1 ? "Go" : "Stop";
-  const randomGiph = Math.round(Math.random()*25);
+  const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
   axios.get(`${giphyUrl}q=${answer}&api_key=${key}`)
