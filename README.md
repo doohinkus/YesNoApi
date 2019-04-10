@@ -17,6 +17,6 @@ Once they are installed, run the server:
  npm start
 ```
 
-* For Yes or Not open browser to http://localhost:3000/yesno
+* For Yes or No open browser to http://localhost:3000/yesno
 * For Heads or Tails open browser to http://localhost:3000/flip
 * For Stop or Go open browser to http://localhost:3000/traffic
