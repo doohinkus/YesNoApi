@@ -4,7 +4,7 @@ const giphyUrl =`http://api.giphy.com/v1/gifs/search?`;
 const functions = require('../functions');
 
 exports.yesNo = (req, res, next) =>{
-  let answer = functions.chance() == 1 ? "Yes" : "No";
+  const answer = functions.chance() == 1 ? "Yes" : "No";
   const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
@@ -22,7 +22,7 @@ exports.yesNo = (req, res, next) =>{
 };
 
 exports.flip = (req, res, next) =>{
-  let answer = functions.chance() == 1 ? "Heads" : "Tails";
+  const answer = functions.chance() == 1 ? "Heads" : "Tails";
   const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
@@ -34,13 +34,13 @@ exports.flip = (req, res, next) =>{
       console.log(error);
       res.json({ answer, gif: 'images/broken.gif'})
    })
-   .then(()=>{
-     res.json({ answer, gif });
-   });
+    .then(()=>{
+       res.json({ answer, gif });
+    });
 };
 
 exports.traffic = (req, res, next) =>{
-  let answer = functions.chance() == 1 ? "Go" : "Stop";
+  const answer = functions.chance() == 1 ? "Go" : "Stop";
   const randomGiph = functions.randomGiph(25);
   let gif ='';
   // 25 gifs
